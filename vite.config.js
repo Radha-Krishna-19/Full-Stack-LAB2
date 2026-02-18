@@ -5,4 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/Full-Stack-LAB2/',
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+  }
 })
