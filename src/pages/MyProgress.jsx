@@ -217,8 +217,21 @@ const MyProgress = () => {
                             </motion.div>
                         );
                     })}
-                </div>
             </section>
+
+            <div style={{ marginTop: '5rem', textAlign: 'center', padding: '2rem', background: 'white', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow)' }}>
+                <h4 style={{ marginBottom: '1rem', color: 'var(--color-error)', fontWeight: '800' }}>Danger Zone</h4>
+                <p style={{ opacity: 0.6, marginBottom: '1.5rem', fontSize: '1rem', maxWidth: '500px', margin: '0 auto 1.5rem' }}>
+                    If you want to start your MathWorld adventure from the very beginning, you can reset all your stars and progress here.
+                </p>
+                <button
+                    onClick={handleReset}
+                    className="btn-primary"
+                    style={{ background: 'var(--color-error)', boxShadow: '0 4px 0 #b94a48', gap: '0.5rem', padding: '0 2.5rem' }}
+                >
+                    <Trash2 size={22} /> Reset All Progress
+                </button>
+            </div>
         </motion.div>
     );
 };
