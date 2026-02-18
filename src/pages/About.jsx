@@ -17,10 +17,10 @@ const About = () => {
                 <div style={{ width: '100px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto', borderRadius: '2px' }} />
             </header>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', alignItems: 'stretch' }}>
                 {/* Member Details */}
-                <section className="game-card" style={{ padding: '2rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+                <section className="game-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', alignSelf: 'center' }}>
                         <User color="var(--color-primary)" size={32} />
                         <h2 style={{ fontSize: '1.5rem' }}>Member Detail</h2>
                     </div>
@@ -46,12 +46,12 @@ const About = () => {
                 </section>
 
                 {/* Course Details */}
-                <section className="game-card" style={{ padding: '2rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+                <section className="game-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', alignSelf: 'center' }}>
                         <GraduationCap color="var(--color-secondary)" size={32} />
                         <h2 style={{ fontSize: '1.5rem' }}>Course Details</h2>
                     </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', flex: 1, justifyContent: 'center', textAlign: 'center' }}>
                         <div>
                             <p style={{ fontSize: '0.9rem', opacity: 0.6, marginBottom: '0.2rem' }}>Course Code</p>
                             <p style={{ fontWeight: '700', fontSize: '1.1rem' }}>23CSE461</p>
@@ -70,49 +70,48 @@ const About = () => {
                 </section>
             </div>
 
-            {/* Case Study & Novelty */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
-                <section className="game-card" style={{ padding: '2rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '2rem', alignItems: 'stretch' }}>
+                <section className="game-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', alignSelf: 'center' }}>
                         <Zap color="var(--color-accent)" size={32} />
                         <h2 style={{ fontSize: '1.5rem' }}>Product Use Case</h2>
                     </div>
 
-                    <div style={{ marginBottom: '1.5rem' }}>
+                    <div style={{ marginBottom: '1.5rem', flex: 1, textAlign: 'center' }}>
                         <h3 style={{ fontSize: '1.1rem', color: 'var(--color-primary)', marginBottom: '0.5rem' }}>The Need for Autism Kids</h3>
                         <p style={{ fontSize: '0.95rem', lineHeight: '1.6', opacity: 0.8 }}>
                             Traditional learning portals are often overstimulating or unpredictable for neurodivergent children. MathWorld provides a **highly predictable, sensory-friendly environment** where children learn at their own pace without social pressure.
                         </p>
                     </div>
 
-                    <div>
+                    <div style={{ flex: 1, textAlign: 'center' }}>
                         <h3 style={{ fontSize: '1.1rem', color: 'var(--color-secondary)', marginBottom: '0.5rem' }}>Challenges Addressed</h3>
-                        <ul style={{ fontSize: '0.9rem', paddingLeft: '1.2rem', lineHeight: '1.6', opacity: 0.8 }}>
-                            <li>**Executive Functioning**: Simple, single-step visual instructions.</li>
-                            <li>**Sensory Overload**: Calming pastel palette and gentle auditory feedback.</li>
-                            <li>**Predictability**: Consistent layouts reduce transition anxiety.</li>
+                        <ul style={{ fontSize: '0.9rem', padding: 0, listStyle: 'none', lineHeight: '1.8', opacity: 0.8 }}>
+                            <li>✨ **Executive Functioning**: Visual cues simplify steps.</li>
+                            <li>🌈 **Sensory Overload**: Low-contrast, warm aesthetics.</li>
+                            <li>🔄 **Consistency**: Highly predictable UI layouts.</li>
                         </ul>
                     </div>
                 </section>
 
-                <section className="game-card" style={{ padding: '2rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+                <section className="game-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', alignSelf: 'center' }}>
                         <Info color="var(--color-success)" size={32} />
                         <h2 style={{ fontSize: '1.5rem' }}>Highlights & Novelty</h2>
                     </div>
 
-                    <ul style={{ fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '1rem', padding: 0, listStyle: 'none' }}>
-                        <li style={{ borderLeft: '3px solid var(--color-primary)', paddingLeft: '1rem' }}>
-                            <strong>Dynamic Learning Buddy</strong><br />
-                            <span style={{ fontSize: '0.85rem', opacity: 0.7 }}>Personal mascot guide provides emotional continuity throughout the adventure.</span>
+                    <ul style={{ fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', padding: 0, listStyle: 'none', flex: 1, justifyContent: 'center' }}>
+                        <li style={{ borderBottom: '2px solid #f8f9fa', paddingBottom: '1rem', textAlign: 'center' }}>
+                            <strong style={{ color: 'var(--color-primary)' }}>Dynamic Learning Buddy</strong><br />
+                            <span style={{ fontSize: '0.9rem', opacity: 0.8 }}>Personal mascot guide provides emotional continuity.</span>
                         </li>
-                        <li style={{ borderLeft: '3px solid var(--color-secondary)', paddingLeft: '1rem' }}>
-                            <strong>Adaptive Multi-Level Engine</strong><br />
-                            <span style={{ fontSize: '0.85rem', opacity: 0.7 }}>Independent difficulty tracking for counting, addition, shapes, and patterns.</span>
+                        <li style={{ borderBottom: '2px solid #f8f9fa', paddingBottom: '1rem', textAlign: 'center' }}>
+                            <strong style={{ color: 'var(--color-secondary)' }}>Adaptive Multi-Level Engine</strong><br />
+                            <span style={{ fontSize: '0.9rem', opacity: 0.8 }}>Independent difficulty tracking across all games.</span>
                         </li>
-                        <li style={{ borderLeft: '3px solid var(--color-accent)', paddingLeft: '1rem' }}>
-                            <strong>Positive-Only Reinforcement</strong><br />
-                            <span style={{ fontSize: '0.85rem', opacity: 0.7 }}>Removes fear of failure by focusing on visual hints rather than error flags.</span>
+                        <li style={{ textAlign: 'center' }}>
+                            <strong style={{ color: 'var(--color-accent)' }}>Positive-Only Reinforcement</strong><br />
+                            <span style={{ fontSize: '0.9rem', opacity: 0.8 }}>Removes anxiety by using hints instead of errors.</span>
                         </li>
                     </ul>
                 </section>

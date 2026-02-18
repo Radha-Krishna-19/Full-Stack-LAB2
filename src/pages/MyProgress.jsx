@@ -117,26 +117,44 @@ const MyProgress = () => {
                 </section>
             </div>
 
-            <section style={{ marginTop: '3rem' }}>
-                <h3 style={{ fontSize: '1.8rem', textAlign: 'center', marginBottom: '2rem' }}>Badges Earned</h3>
+            <section style={{ marginTop: '4rem', borderTop: '2px solid #f1f3f5', paddingTop: '3rem' }}>
+                <h3 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '2.5rem', color: 'var(--color-primary)' }}>My Achievement Badges</h3>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
                     {gameState.stars > 0 && (
-                        <div className="game-card" style={{ width: '150px', aspectRatio: '1' }}>
-                            <Award size={64} color="var(--color-primary)" />
-                            <span style={{ fontSize: '0.9rem', fontWeight: '800' }}>First Star!</span>
-                        </div>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            className="game-card"
+                            style={{ width: '160px', padding: '1.5rem' }}
+                        >
+                            <div style={{ background: 'var(--color-primary)22', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
+                                <Award size={48} color="var(--color-primary)" />
+                            </div>
+                            <span style={{ fontSize: '1rem', fontWeight: '800' }}>First Star!</span>
+                        </motion.div>
                     )}
                     {gameState.stars >= 50 && (
-                        <div className="game-card" style={{ width: '150px', aspectRatio: '1' }}>
-                            <Trophy size={64} color="var(--color-secondary)" />
-                            <span style={{ fontSize: '0.9rem', fontWeight: '800' }}>Star Collector</span>
-                        </div>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            className="game-card"
+                            style={{ width: '160px', padding: '1.5rem' }}
+                        >
+                            <div style={{ background: 'var(--color-secondary)22', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
+                                <Trophy size={48} color="var(--color-secondary)" />
+                            </div>
+                            <span style={{ fontSize: '1rem', fontWeight: '800' }}>Star Collector</span>
+                        </motion.div>
                     )}
                     {Object.values(gameState.progress).some(lvls => Object.values(lvls).some(v => v === 100)) && (
-                        <div className="game-card" style={{ width: '150px', aspectRatio: '1' }}>
-                            <Award size={64} color="var(--color-success)" />
-                            <span style={{ fontSize: '0.9rem', fontWeight: '800' }}>Game Master</span>
-                        </div>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            className="game-card"
+                            style={{ width: '160px', padding: '1.5rem' }}
+                        >
+                            <div style={{ background: 'var(--color-success)22', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
+                                <Award size={48} color="var(--color-success)" />
+                            </div>
+                            <span style={{ fontSize: '1rem', fontWeight: '800' }}>Game Master</span>
+                        </motion.div>
                     )}
                 </div>
             </section>

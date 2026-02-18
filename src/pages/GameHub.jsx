@@ -57,13 +57,14 @@ const GameHub = () => {
             animate={{ opacity: 1 }}
             style={{ padding: '1rem 0' }}
         >
-            <header style={{ marginBottom: '2rem', textAlign: 'left' }}>
-                <h2 style={{ fontSize: '2rem', color: 'var(--color-primary)' }}>
+            <header style={{ marginBottom: '3rem', textAlign: 'center' }}>
+                <h2 style={{ fontSize: '2.5rem', color: 'var(--color-primary)', marginBottom: '0.5rem' }}>
                     Hello, {gameState.player.name || 'Friend'}!
                 </h2>
                 <p style={{ fontSize: '1.2rem', color: 'var(--color-text)', opacity: 0.7 }}>
                     Choose an adventure to start learning!
                 </p>
+                <div style={{ width: '80px', height: '4px', background: 'var(--color-secondary)', margin: '1rem auto 0', borderRadius: '2px' }} />
             </header>
 
             <div style={{
