@@ -10,6 +10,7 @@ import SubtractionJourney from './pages/SubtractionJourney';
 import ShapeAdventure from './pages/ShapeAdventure';
 import PatternPlay from './pages/PatternPlay';
 import MyProgress from './pages/MyProgress';
+import About from './pages/About';
 import './index.css';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
               <Route path="/shapes" element={<ShapeAdventure />} />
               <Route path="/patterns" element={<PatternPlay />} />
               <Route path="/progress" element={<MyProgress />} />
+              <Route path="/about" element={<About />} />
             </Routes>
           </main>
         </div>

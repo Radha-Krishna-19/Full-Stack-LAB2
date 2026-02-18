@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGame } from '../context/GameContext';
-import { ArrowLeft, Volume2, VolumeX, Star, Trophy, Rocket, Cloud, Heart } from 'lucide-react';
+import { ArrowLeft, Volume2, VolumeX, Star, Trophy, Rocket, Cloud, Heart, Info } from 'lucide-react';
 
 const NavBar = () => {
     const { gameState, toggleSound } = useGame();
@@ -129,6 +129,22 @@ const NavBar = () => {
                     title="My Progress"
                 >
                     <Trophy size={24} />
+                </button>
+
+                <div style={{ width: '2px', height: '24px', background: '#dee2e6' }} />
+
+                <button
+                    onClick={() => navigate('/about')}
+                    style={{
+                        background: 'none',
+                        padding: '0.5rem',
+                        minHeight: 'auto',
+                        color: 'var(--color-primary)',
+                        boxShadow: 'none'
+                    }}
+                    title="About Project"
+                >
+                    <Info size={24} />
                 </button>
             </div>
         </nav>
