@@ -217,6 +217,7 @@ const MyProgress = () => {
                             </motion.div>
                         );
                     })}
+                </div>
             </section>
 
             <div style={{ marginTop: '5rem', textAlign: 'center', padding: '2rem', background: 'white', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow)' }}>
