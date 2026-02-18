@@ -1,10 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useGame } from '../context/GameContext';
-import { Star, Trophy, Target, Award, Hash, Plus, Minus, Shapes, LayoutGrid, Rocket, Zap, Heart } from 'lucide-react';
+import { Star, Trophy, Target, Award, Hash, Plus, Minus, Shapes, LayoutGrid, Rocket, Zap, Heart, Trash2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const MyProgress = () => {
-    const { gameState } = useGame();
+    const { gameState, resetGame } = useGame();
+    const navigate = useNavigate();
+
+    const handleReset = () => {
+        if (window.confirm("Are you sure you want to delete ALL your hard-earned stars and progress? This cannot be undone!")) {
+            resetGame();
+            navigate('/');
+        }
+    };
 
     const gameIcons = {
         numberWorld: Hash,
