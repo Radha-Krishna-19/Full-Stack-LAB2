@@ -23,12 +23,12 @@ const MyProgress = () => {
     };
 
     const badgesList = [
-        { id: 'first', label: 'First Star!', icon: Award, color: 'var(--color-primary)', requirement: gameState.stars > 0 },
-        { id: 'rising', label: 'Rising Star', icon: Zap, color: 'var(--color-accent)', requirement: gameState.stars >= 20 },
-        { id: 'collector', label: 'Star Collector', icon: Trophy, color: 'var(--color-secondary)', requirement: gameState.stars >= 50 },
-        { id: 'explorer', label: 'Math Explorer', icon: Rocket, color: 'var(--color-primary)', requirement: gameState.stars >= 100 },
-        { id: 'hero', label: 'Math Hero', icon: Heart, color: '#ef6461', requirement: gameState.stars >= 250 },
-        { id: 'master', label: 'Game Master', icon: Award, color: 'var(--color-success)', requirement: Object.values(gameState.progress).some(lvls => Object.values(lvls).some(v => v === 100)) },
+        { id: 'first', label: 'First Star!', icon: Award, color: 'var(--color-primary)', requirement: gameState.stars > 0, hint: 'Earn your very first star!' },
+        { id: 'rising', label: 'Rising Star', icon: Zap, color: 'var(--color-accent)', requirement: gameState.stars >= 20, hint: 'Collect 20 stars total' },
+        { id: 'collector', label: 'Star Collector', icon: Trophy, color: 'var(--color-secondary)', requirement: gameState.stars >= 50, hint: 'Collect 50 stars total' },
+        { id: 'explorer', label: 'Math Explorer', icon: Rocket, color: 'var(--color-primary)', requirement: gameState.stars >= 100, hint: 'Collect 100 stars total' },
+        { id: 'hero', label: 'Math Hero', icon: Heart, color: '#ef6461', requirement: gameState.stars >= 250, hint: 'Collect 250 stars total' },
+        { id: 'master', label: 'Game Master', icon: Award, color: 'var(--color-success)', requirement: Object.values(gameState.progress).some(lvls => Object.values(lvls).some(v => v === 100)), hint: 'Finish any game 100%' },
     ];
 
     return (
@@ -61,7 +61,7 @@ const MyProgress = () => {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                 {/* Stats Grid */}
-                <section className="game-card" style={{ padding: '2rem', minHeight: '300px', position: 'relative', overflow: 'hidden' }}>
+                <section className="game-card" style={{ padding: '2rem', minHeight: '300px', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
                     <div style={{
                         position: 'absolute',
                         right: '-20px',
@@ -166,12 +166,15 @@ const MyProgress = () => {
                                 whileHover={isUnlocked ? { scale: 1.05, rotate: [0, -5, 5, 0] } : {}}
                                 className="game-card"
                                 style={{
-                                    width: '180px',
-                                    padding: '2rem 1.5rem',
+                                    width: '200px',
+                                    padding: '2rem 1rem',
                                     filter: isUnlocked ? 'none' : 'grayscale(100%)',
-                                    opacity: isUnlocked ? 1 : 0.4,
-                                    border: isUnlocked ? `2px solid ${badge.color}44` : '2px solid transparent',
-                                    position: 'relative'
+                                    opacity: isUnlocked ? 1 : 0.6,
+                                    border: isUnlocked ? `3px solid ${badge.color}66` : '3px solid transparent',
+                                    position: 'relative',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'space-between'
                                 }}
                             >
                                 <div style={{
@@ -179,22 +182,29 @@ const MyProgress = () => {
                                     padding: '1.2rem',
                                     borderRadius: '50%',
                                     marginBottom: '1rem',
-                                    transition: 'all 0.3s'
+                                    transition: 'all 0.3s',
+                                    alignSelf: 'center'
                                 }}>
                                     <Icon size={48} color={isUnlocked ? badge.color : '#adb5bd'} />
                                 </div>
-                                <span style={{
-                                    fontSize: '1.1rem',
-                                    fontWeight: '800',
-                                    color: isUnlocked ? 'var(--color-text)' : '#adb5bd'
-                                }}>
-                                    {badge.label}
-                                </span>
-                                {!isUnlocked && (
-                                    <div style={{ fontSize: '0.75rem', marginTop: '0.5rem', color: '#adb5bd', fontWeight: '600' }}>
-                                        LOCKED
-                                    </div>
-                                )}
+                                <div style={{ textAlign: 'center', flex: 1 }}>
+                                    <h4 style={{
+                                        fontSize: '1.1rem',
+                                        fontWeight: '800',
+                                        color: isUnlocked ? 'var(--color-text)' : '#adb5bd',
+                                        marginBottom: '0.4rem'
+                                    }}>
+                                        {badge.label}
+                                    </h4>
+                                    <p style={{
+                                        fontSize: '0.85rem',
+                                        fontWeight: '600',
+                                        color: isUnlocked ? 'var(--color-success)' : '#adb5bd',
+                                        lineHeight: '1.3'
+                                    }}>
+                                        {isUnlocked ? 'Earned! 🏆' : `To earn: ${badge.hint}`}
+                                    </p>
+                                </div>
                             </motion.div>
                         );
                     })}
