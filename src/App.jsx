@@ -16,7 +16,7 @@ import './index.css';
 function App() {
   return (
     <GameProvider>
-      <Router>
+      <Router basename="/Full-Stack-LAB2">
         <div className="app-container">
           <NavBar />
           <main className="main-content">
