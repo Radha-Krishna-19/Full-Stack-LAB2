@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, Book, Teacher, Github, Info, Layers, Zap } from 'lucide-react';
+import { User, Book, Github, Info, Layers, Zap, GraduationCap } from 'lucide-react';
+import profileImg from '../assets/profile.jpeg';
 
 const About = () => {
     return (
@@ -25,18 +26,19 @@ const About = () => {
                     </div>
                     <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
                         <div style={{
-                            width: '150px',
-                            height: '150px',
-                            background: '#f1f3f5',
-                            borderRadius: '50%',
-                            margin: '0 auto 1rem',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
+                            width: '180px',
+                            height: '180px',
+                            margin: '0 auto 1.5rem',
+                            borderRadius: 'var(--radius-lg)',
+                            overflow: 'hidden',
                             border: '4px solid white',
-                            boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
+                            boxShadow: 'var(--shadow)'
                         }}>
-                            <span style={{ color: '#adb5bd', fontSize: '0.9rem' }}>Photo</span>
+                            <img
+                                src={profileImg}
+                                alt="P.M.RADHA KRISHNA"
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
                         </div>
                         <h3 style={{ fontSize: '1.4rem', color: 'var(--color-text)' }}>P.M.RADHA KRISHNA</h3>
                         <p style={{ fontWeight: '700', color: 'var(--color-primary)' }}>Roll No: CB.SC.U4CSE23134</p>
@@ -46,7 +48,7 @@ const About = () => {
                 {/* Course Details */}
                 <section className="game-card" style={{ padding: '2rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-                        <Book color="var(--color-secondary)" size={32} />
+                        <GraduationCap color="var(--color-secondary)" size={32} />
                         <h2 style={{ fontSize: '1.5rem' }}>Course Details</h2>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
