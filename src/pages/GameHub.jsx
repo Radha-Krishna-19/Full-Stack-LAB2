@@ -68,8 +68,9 @@ const GameHub = () => {
             </header>
 
             <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
                 gap: '2rem',
                 paddingBottom: '2rem'
             }}>
@@ -85,7 +86,7 @@ const GameHub = () => {
                             transition={{ delay: index * 0.1 }}
                             onClick={() => navigate(game.path)}
                             className="game-card"
-                            style={{ cursor: 'pointer' }}
+                            style={{ cursor: 'pointer', flex: '1 1 320px', maxWidth: '400px' }}
                         >
                             <div style={{
                                 width: '80px',

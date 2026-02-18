@@ -124,18 +124,18 @@ const About = () => {
                     <h2 style={{ fontSize: '1.5rem' }}>Technical Implementation</h2>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
-                    <div style={{ padding: '1rem', background: '#f8f9fa', borderRadius: 'var(--radius-md)' }}>
-                        <h4 style={{ color: 'var(--color-primary)', marginBottom: '0.5rem' }}>State Architecture</h4>
-                        <p style={{ fontSize: '0.85rem', opacity: 0.8 }}>React Context API for persistent profile and real-time progress syncing via LocalStorage.</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center' }}>
+                    <div style={{ padding: '1.5rem', background: '#f8f9fa', borderRadius: 'var(--radius-md)', flex: '1 1 280px', maxWidth: '400px', textAlign: 'center' }}>
+                        <h4 style={{ color: 'var(--color-primary)', marginBottom: '0.8rem' }}>State Architecture</h4>
+                        <p style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: '1.5' }}>React Context API for persistent profile and real-time progress syncing via LocalStorage.</p>
                     </div>
-                    <div style={{ padding: '1rem', background: '#f8f9fa', borderRadius: 'var(--radius-md)' }}>
-                        <h4 style={{ color: 'var(--color-secondary)', marginBottom: '0.5rem' }}>Motion Engine</h4>
-                        <p style={{ fontSize: '0.85rem', opacity: 0.8 }}>Framer Motion for gentle, non-overstimulating transitions and celebratory object physics.</p>
+                    <div style={{ padding: '1.5rem', background: '#f8f9fa', borderRadius: 'var(--radius-md)', flex: '1 1 280px', maxWidth: '400px', textAlign: 'center' }}>
+                        <h4 style={{ color: 'var(--color-secondary)', marginBottom: '0.8rem' }}>Motion Engine</h4>
+                        <p style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: '1.5' }}>Framer Motion for gentle, non-overstimulating transitions and celebratory object physics.</p>
                     </div>
-                    <div style={{ padding: '1rem', background: '#f8f9fa', borderRadius: 'var(--radius-md)' }}>
-                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.5rem' }}>Logic Modules</h4>
-                        <p style={{ fontSize: '0.85rem', opacity: 0.8 }}>Custom hooks and utility patterns to drive randomized round generation and scoring.</p>
+                    <div style={{ padding: '1.5rem', background: '#f8f9fa', borderRadius: 'var(--radius-md)', flex: '1 1 280px', maxWidth: '400px', textAlign: 'center' }}>
+                        <h4 style={{ color: 'var(--color-accent)', marginBottom: '0.8rem' }}>Logic Modules</h4>
+                        <p style={{ fontSize: '0.9rem', opacity: 0.8, lineHeight: '1.5' }}>Custom hooks and utility patterns to drive randomized round generation and scoring.</p>
                     </div>
                 </div>
 
