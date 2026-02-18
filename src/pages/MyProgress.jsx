@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useGame } from '../context/GameContext';
-import { Star, Trophy, Target, Award, Hash, Plus, Minus, Shapes, LayoutGrid } from 'lucide-react';
+import { Star, Trophy, Target, Award, Hash, Plus, Minus, Shapes, LayoutGrid, Rocket, Zap, Heart } from 'lucide-react';
 
 const MyProgress = () => {
     const { gameState } = useGame();
@@ -21,6 +21,15 @@ const MyProgress = () => {
         shapeAdventure: 'Shape Adventure',
         patternPlay: 'Pattern Play'
     };
+
+    const badgesList = [
+        { id: 'first', label: 'First Star!', icon: Award, color: 'var(--color-primary)', requirement: gameState.stars > 0 },
+        { id: 'rising', label: 'Rising Star', icon: Zap, color: 'var(--color-accent)', requirement: gameState.stars >= 20 },
+        { id: 'collector', label: 'Star Collector', icon: Trophy, color: 'var(--color-secondary)', requirement: gameState.stars >= 50 },
+        { id: 'explorer', label: 'Math Explorer', icon: Rocket, color: 'var(--color-primary)', requirement: gameState.stars >= 100 },
+        { id: 'hero', label: 'Math Hero', icon: Heart, color: '#ef6461', requirement: gameState.stars >= 250 },
+        { id: 'master', label: 'Game Master', icon: Award, color: 'var(--color-success)', requirement: Object.values(gameState.progress).some(lvls => Object.values(lvls).some(v => v === 100)) },
+    ];
 
     return (
         <motion.div
@@ -52,17 +61,35 @@ const MyProgress = () => {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                 {/* Stats Grid */}
-                <section className="game-card" style={{ padding: '2rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
+                <section className="game-card" style={{ padding: '2rem', minHeight: '300px', position: 'relative', overflow: 'hidden' }}>
+                    <div style={{
+                        position: 'absolute',
+                        right: '-20px',
+                        bottom: '-20px',
+                        opacity: 0.05,
+                        transform: 'rotate(-15deg)'
+                    }}>
+                        <Star size={200} fill="var(--color-secondary)" />
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem', zIndex: 1, width: '100%', justifyContent: 'center' }}>
                         <Star fill="var(--color-secondary)" color="var(--color-secondary)" size={32} />
                         <h3 style={{ fontSize: '1.8rem' }}>Total Stars</h3>
                     </div>
-                    <div style={{ fontSize: '4rem', fontWeight: '900', color: 'var(--color-secondary)' }}>
-                        {gameState.stars}
+
+                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 1 }}>
+                        <motion.div
+                            key={gameState.stars}
+                            initial={{ scale: 0.5, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            style={{ fontSize: '5.5rem', fontWeight: '900', color: 'var(--color-secondary)', textShadow: '0 4px 8px rgba(0,0,0,0.1)' }}
+                        >
+                            {gameState.stars}
+                        </motion.div>
+                        <p style={{ marginTop: '1rem', fontWeight: '800', fontSize: '1.2rem', color: 'var(--color-success)', background: 'var(--color-success)11', padding: '0.5rem 1.5rem', borderRadius: 'var(--radius-full)' }}>
+                            Super Star Journey! 🌟
+                        </p>
                     </div>
-                    <p style={{ marginTop: '1rem', fontWeight: '700', color: 'var(--color-success)' }}>
-                        Super Star! 🌟
-                    </p>
                 </section>
 
                 {/* Progress Grid */}
@@ -118,44 +145,59 @@ const MyProgress = () => {
             </div>
 
             <section style={{ marginTop: '4rem', borderTop: '2px solid #f1f3f5', paddingTop: '3rem' }}>
-                <h3 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '2.5rem', color: 'var(--color-primary)' }}>My Achievement Badges</h3>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-                    {gameState.stars > 0 && (
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            className="game-card"
-                            style={{ width: '160px', padding: '1.5rem' }}
-                        >
-                            <div style={{ background: 'var(--color-primary)22', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
-                                <Award size={48} color="var(--color-primary)" />
-                            </div>
-                            <span style={{ fontSize: '1rem', fontWeight: '800' }}>First Star!</span>
-                        </motion.div>
-                    )}
-                    {gameState.stars >= 50 && (
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            className="game-card"
-                            style={{ width: '160px', padding: '1.5rem' }}
-                        >
-                            <div style={{ background: 'var(--color-secondary)22', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
-                                <Trophy size={48} color="var(--color-secondary)" />
-                            </div>
-                            <span style={{ fontSize: '1rem', fontWeight: '800' }}>Star Collector</span>
-                        </motion.div>
-                    )}
-                    {Object.values(gameState.progress).some(lvls => Object.values(lvls).some(v => v === 100)) && (
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            className="game-card"
-                            style={{ width: '160px', padding: '1.5rem' }}
-                        >
-                            <div style={{ background: 'var(--color-success)22', padding: '1rem', borderRadius: '50%', marginBottom: '1rem' }}>
-                                <Award size={48} color="var(--color-success)" />
-                            </div>
-                            <span style={{ fontSize: '1rem', fontWeight: '800' }}>Game Master</span>
-                        </motion.div>
-                    )}
+                <h3 style={{ fontSize: '2.2rem', textAlign: 'center', marginBottom: '1rem', color: 'var(--color-primary)' }}>My Treasure Chest</h3>
+                <p style={{ textAlign: 'center', marginBottom: '3rem', opacity: 0.7, fontSize: '1.1rem' }}>Earn stars to unlock all the badges!</p>
+
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '2.5rem',
+                    flexWrap: 'wrap',
+                    maxWidth: '1000px',
+                    margin: '0 auto'
+                }}>
+                    {badgesList.map((badge) => {
+                        const Icon = badge.icon;
+                        const isUnlocked = badge.requirement;
+
+                        return (
+                            <motion.div
+                                key={badge.id}
+                                whileHover={isUnlocked ? { scale: 1.05, rotate: [0, -5, 5, 0] } : {}}
+                                className="game-card"
+                                style={{
+                                    width: '180px',
+                                    padding: '2rem 1.5rem',
+                                    filter: isUnlocked ? 'none' : 'grayscale(100%)',
+                                    opacity: isUnlocked ? 1 : 0.4,
+                                    border: isUnlocked ? `2px solid ${badge.color}44` : '2px solid transparent',
+                                    position: 'relative'
+                                }}
+                            >
+                                <div style={{
+                                    background: isUnlocked ? `${badge.color}22` : '#f1f3f5',
+                                    padding: '1.2rem',
+                                    borderRadius: '50%',
+                                    marginBottom: '1rem',
+                                    transition: 'all 0.3s'
+                                }}>
+                                    <Icon size={48} color={isUnlocked ? badge.color : '#adb5bd'} />
+                                </div>
+                                <span style={{
+                                    fontSize: '1.1rem',
+                                    fontWeight: '800',
+                                    color: isUnlocked ? 'var(--color-text)' : '#adb5bd'
+                                }}>
+                                    {badge.label}
+                                </span>
+                                {!isUnlocked && (
+                                    <div style={{ fontSize: '0.75rem', marginTop: '0.5rem', color: '#adb5bd', fontWeight: '600' }}>
+                                        LOCKED
+                                    </div>
+                                )}
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </section>
         </motion.div>
